@@ -1,0 +1,63 @@
+---
+title: "My R Markdown Primer"
+author: "Jeremy Fructuoso"
+date: "2025-11-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown definition
+
+R Markdown is a great tool for reproducible research that allows us to incorporate R code and output (such as tables and graphs) directly into the text. It provides a single page in which we can compose an analytical explanation, execute code, and view the findings, which can then be readily converted to multiple forms such as HTML, PDF, or Word documents. 
+
+
+# Mathematical Expressions
+
+R Markdown supports **LaTeX** for complex equations.
+
+### Inline Math
+A simple inline equation like $\alpha + \beta = \gamma$ is easy to add.
+
+### Displayed Equation
+A more complex equation, such as the Pythagorean theorem, can be displayed on its own line:
+
+$$
+a^2 + b^2 = c^2
+$$
+
+```{r cars}
+# Load the 'tidyverse' package for data handling
+library(tidyverse)
+
+# Display the first few rows of the built-in iris dataset
+head(iris)
+
+# Get summary statistics for the Sepal.Length column
+summary(iris$Sepal.Length)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+# Create a scatter plot of Sepal Length vs. Petal Length, colored by Species
+iris_plot <- ggplot(iris, aes(x = Petal.Length, y = Sepal.Length, color = Species)) +
+geom_point() +
+labs(
+title = "Sepal Length vs. Petal Length",
+x = "Petal Length (cm)",
+y = "Sepal Length (cm)"
+) +
+theme_minimal()
+
+# Display the plot
+iris_plot
+```
+
+## Concluding Reflection
+
+R Markdown greatly improves simple reporting by providing reproducibility. . The direct integration of R code and narrative means that figures and statistics are always synchronized with the latest analysis. This automated updating saves time, reduces copying mistakes, and creates a more efficient and dependable reporting procedure.
